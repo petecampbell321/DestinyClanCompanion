@@ -1,0 +1,19 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import User from './User';
+
+const UserList = (props) => {
+  return (
+    <div>
+      { props.users && props.users.map((user) => <User key={user.displayName} {...user} /> ) }
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    users: state
+  };
+};
+
+export default connect(mapStateToProps)(UserList);
