@@ -5,7 +5,7 @@ import User from './User';
 const UserList = (props) => {
   return (
     <div>
-      { props.users && props.users.map((user) => <User key={user.displayName} {...user} /> ) }
+      { props.users && props.users.map((user) => <User key={user.membershipId} {...user} /> ) }
     </div>
   );
 };
