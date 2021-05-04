@@ -34,7 +34,7 @@ class App extends React.Component {
     );
   };
   
-};
+}
 
 ReactDOM.render(
   <Provider store={store}>
