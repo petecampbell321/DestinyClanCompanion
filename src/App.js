@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import store from './store/store';
-import { addUsers } from './actions/users';
+import { getUsers } from './actions/usersActions/getUsers';
 
 import Header from './components/Header';
 import UserList from './components/UserList';
@@ -20,8 +20,8 @@ class App extends React.Component {
         console.log(error.response.data.Message);
       })
       .then(response => {
-        console.log(response.data.Response[0]);
-        store.dispatch(addUsers(response.data.Response));
+          console.log(response.data);
+        store.dispatch(getUsers(response.data.Response));
       });
   };
 
