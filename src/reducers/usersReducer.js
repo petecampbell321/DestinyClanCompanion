@@ -1,17 +1,17 @@
 const initialUsers = [];
 
 const usersReducer = (users = initialUsers, action) => {
-  switch(action.type) {
-    case 'GET_USERS': {
-      return [
-        ...users,
-        ...action.payload
-      ];
+    switch (action.type) {
+        case 'GET_USERS': {
+            return [
+                ...users,
+                ...action.payload
+            ];
+        }
+        default: {
+            return users;
+        }
     }
-    default: {
-      return state;
-    }
-  }
 };
 
 export default usersReducer;
