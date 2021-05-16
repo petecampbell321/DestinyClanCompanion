@@ -27,7 +27,7 @@ app.get('/users', (req, res) => {
 })
 
 app.get('/bungietest', (req, res) => {
-  instance.get('Destiny2/SearchDestinyPlayer/-1/NTIVE/')
+  instance.get('Destiny2/SearchDestinyPlayer/-1/Native/')
     .then(response => {
       res.send(response.data)
     })

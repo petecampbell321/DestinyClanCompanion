@@ -3,11 +3,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 
-import store from './store/store';
-import getUsers from './actions/usersActions/getUsers';
+import store from './store';
+import getUsers from '../actions/userActions/getUsers';
 
-import Header from './components/Header';
-import UserList from './components/UserList';
+import Header from '../components/Header';
+import UserList from '../components/UserList';
 
 class App extends React.Component {
 
