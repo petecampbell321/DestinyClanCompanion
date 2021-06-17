@@ -1,8 +1,10 @@
-const express = require('express');
-const axios = require('axios');
-const cors = require('cors');
+import express from 'express';
+import axios from 'axios';
+import cors from 'cors';
 
-require('dotenv').config();
+import dotenv from 'dotenv';
+
+dotenv.config()
 
 const app = express();
 app.use(cors());
@@ -25,7 +27,7 @@ app.get('/users', (req, res) => {
 })
 
 app.get('/bungietest', (req, res) => {
-  instance.get('Destiny2/SearchDestinyPlayer/-1/NTIVE/')
+  instance.get('Destiny2/SearchDestinyPlayer/-1/Native/')
     .then(response => {
       res.send(response.data)
     })
