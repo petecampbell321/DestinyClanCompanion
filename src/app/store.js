@@ -1,10 +1,5 @@
-import {createStore, combineReducers} from 'redux';
-import rootReducer from '../reducers/rootReducer';
+import {combineReducers, createStore} from 'redux';
 
-const store = createStore(rootReducer);
-
-store.subscribe(() => {
-    console.log('store data:', store.getState());
-});
-
-export default store;
+export const store = createStore(combineReducers({
+    // users: usersReducer
+}));
