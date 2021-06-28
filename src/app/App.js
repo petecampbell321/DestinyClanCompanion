@@ -1,17 +1,13 @@
 import React from 'react';
 
-class App extends React.Component {
+import EventThumbnail from "../components/EventThumbnail/EventThumbnail";
 
-    constructor(props) {
-        super(props);
-        this.state = props.state;
-        this.dispatch = props.dispatch;
-    }
+class App extends React.Component {
 
     render() {
         return (
             <div>
-
+                <EventThumbnail />
             </div>
         );
     };

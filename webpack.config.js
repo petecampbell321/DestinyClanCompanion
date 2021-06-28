@@ -1,10 +1,21 @@
 const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
-    entry: './src/app/app.js',
+    entry: './src/index.js',
     output: {
-        filename: 'bundle.js',
-        path: path.join(__dirname, 'public')
+        filename: 'main.js',
+        path: path.join(__dirname, 'dist')
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            hash: true,
+            title: 'My Awesome application',
+            myPageHeader: 'Hello World',
+            template: './public/index.html',
+            filename: './index.html'
+        })
+    ],
     module: {
         rules: [{
             loader: 'babel-loader',
