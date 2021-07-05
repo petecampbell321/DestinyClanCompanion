@@ -1,13 +1,21 @@
 import React from 'react';
 
-import EventThumbnail from "../components/EventThumbnail/EventThumbnail";
+import Scheduler from "../scheduler/Scheduler";
+
+import "./app.sass";
 
 class App extends React.Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
-            <div>
-                <EventThumbnail />
+            <div className="app-container">
+                <div className="scheduler">
+                    <Scheduler />
+                </div>
             </div>
         );
     };
