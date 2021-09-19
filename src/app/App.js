@@ -1,17 +1,21 @@
 import React from 'react';
 
+import Scheduler from "../scheduler/Scheduler";
+
+import "./app.sass";
+
 class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = props.state;
-        this.dispatch = props.dispatch;
     }
 
     render() {
         return (
-            <div>
-
+            <div className="app-container">
+                <div className="scheduler">
+                    <Scheduler />
+                </div>
             </div>
         );
     };

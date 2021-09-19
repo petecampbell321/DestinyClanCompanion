@@ -1,16 +1,39 @@
 const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
-    entry: './src/app/app.js',
+    entry: './src/index.js',
     output: {
-        filename: 'bundle.js',
-        path: path.join(__dirname, 'public')
+        filename: 'main.js',
+        path: path.join(__dirname, 'dist')
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            hash: true,
+            title: 'Hawthorne',
+            template: './public/index.html',
+            filename: './index.html'
+        })
+    ],
     module: {
-        rules: [{
-            loader: 'babel-loader',
-            test: /\.js$/,
-            exclude: /node_modules/
-        }]
+        rules: [
+            {
+                loader: 'babel-loader',
+                test: /\.js$/,
+                exclude: /node_modules/
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    // Creates `style` nodes from JS strings
+                    "style-loader",
+                    // Translates CSS into CommonJS
+                    "css-loader",
+                    // Compiles Sass to CSS
+                    "sass-loader",
+                ],
+            }
+        ]
     },
     mode: 'development',
     devServer: {

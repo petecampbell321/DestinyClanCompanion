@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "VoG Master",
+    "activity": "Vault of Glass",
+    "attendees": 1,
+    "maxPlayers": 6
+  },
+  {
+    "id": 2,
+    "title": "Legend NF",
+    "activity": "Nightfall the Ordeal",
+    "attendees": 2,
+    "maxPlayers": 3
+  },
+  {
+    "id": 3,
+    "title": "LW Sherpa",
+    "activity": "Last Wish",
+    "attendees": 6,
+    "maxPlayers": 6
+  }
+]
