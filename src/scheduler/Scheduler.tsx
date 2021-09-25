@@ -1,15 +1,9 @@
 import React from "react";
-
-import EventThumbnail from "../components/scheduler/EventThumbnail/EventThumbnail";
-
 import "./scheduler.sass";
 import EventList from "../components/scheduler/EventList/EventList";
+import ErrorBoundary from "../util/ErrorBoundary";
 
 class Scheduler extends React.Component{
-
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return(
@@ -20,10 +14,14 @@ class Scheduler extends React.Component{
                 </div>
                 <div className="events-container">
                     <div className="available-events-container">
-                        <EventList type="available" />
+                        <ErrorBoundary>
+                            <EventList type="available" />
+                        </ErrorBoundary>
                     </div>
                     <div className="signed-up-events-container">
-                        <EventList type="signed-up" />
+                        <ErrorBoundary>
+                            <EventList type="signed-up" />
+                        </ErrorBoundary>
                     </div>
                 </div>
             </div>
