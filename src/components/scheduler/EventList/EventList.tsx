@@ -1,27 +1,34 @@
 import React, {Component} from "react";
 import EventThumbnail from "../EventThumbnail/EventThumbnail";
-
 import availableEventsData from "../../../util/available-events.json";
 import signedUpEventsData from "../../../util/signed-up-events.json";
-
 import "./eventList.sass";
+import {EventProps} from "../../../interfaces";
+import {EventDate} from "../../../util/EventDate";
 
-class EventList extends Component {
+interface EventListProps {
+    type: string
+}
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            type: this.props.type
-        }
+interface EventListState {
+    type: string
+}
+
+class EventList extends Component<EventListProps, EventListState> {
+
+    constructor(type: EventListProps) {
+        super(type);
+        // this.state = type;
     }
 
-    getDataFromJson(jsonFile) {
+    getDataFromJson(jsonFile: EventProps[]) {
         return jsonFile.map((event) => {
             return (
                 <EventThumbnail
                     key={event.id}
                     title={event.title}
                     activity={event.activity}
+                    date={new EventDate(Date.now())}
                     attendees={event.attendees}
                     maxPlayers={event.maxPlayers}
                 />
@@ -31,15 +38,15 @@ class EventList extends Component {
 
     getEventsData() {
         try {
-            if (this.state.type === "available") {
+            if (this.props.type === "available") {
                 return this.getDataFromJson(availableEventsData);
             }
-            if (this.state.type === "signed-up") {
+            if (this.props.type === "signed-up") {
                 return this.getDataFromJson(signedUpEventsData);
             }
         }
-        catch(err) {
-            console.log(err.message)
+        catch(err: any) {
+            console.log(err)
         }
     }
 
