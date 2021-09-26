@@ -1,23 +1,24 @@
-export class EventDate extends Date {
+export class EventDate {
+    private date: Date;
 
-    constructor(props: any) {
-        super(props);
+    constructor(date: Date) {
+        this.date = date;
     }
 
     toDateString(): string {
-        return `${this.getDate()}/${this.getMonth()}/${this.getFullYear()}`;
+        return `${this.date.getDate()}/${this.date.getMonth() + 1}/${this.date.getFullYear()}`;
     }
 
     getConvertedMinutes(): string {
         for(let i = 0; i < 10; i++) {
-            if (super.getMinutes() === i) {
-                return `0${super.getMinutes()}`
+            if (this.date.getMinutes() === i) {
+                return `0${this.date.getMinutes()}`
             }
         }
-        return String(super.getMinutes())
+        return String(this.date.getMinutes())
     }
 
     toTimeString(): string {
-        return `${this.getHours()}:${this.getConvertedMinutes()}`;
+        return `${this.date.getHours()}:${this.getConvertedMinutes()}`;
     }
 }

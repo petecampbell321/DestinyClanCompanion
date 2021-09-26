@@ -4,7 +4,7 @@ export interface EventProps {
     id?: number,
     title: string,
     activity: string,
-    date?: EventDate
+    date?: Date
     attendees: number,
     maxPlayers: number
 }

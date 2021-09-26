@@ -9,16 +9,14 @@ import {EventDate} from "../../../util/EventDate";
 interface EventListProps {
     type: string
 }
-
 interface EventListState {
     type: string
 }
 
 class EventList extends Component<EventListProps, EventListState> {
 
-    constructor(type: EventListProps) {
-        super(type);
-        // this.state = type;
+    constructor(props: EventListProps) {
+        super(props);
     }
 
     getDataFromJson(jsonFile: EventProps[]) {
@@ -28,7 +26,6 @@ class EventList extends Component<EventListProps, EventListState> {
                     key={event.id}
                     title={event.title}
                     activity={event.activity}
-                    date={new EventDate(Date.now())}
                     attendees={event.attendees}
                     maxPlayers={event.maxPlayers}
                 />
