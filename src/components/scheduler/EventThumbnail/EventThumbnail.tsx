@@ -23,7 +23,6 @@ class EventThumbnail extends Component<EventProps, EventProps> {
 
         const { title, activity, attendees, maxPlayers } = this.props
 
-        // @ts-ignore
         return (
             <div className="event-container">
                 <div className="title">{title}</div>

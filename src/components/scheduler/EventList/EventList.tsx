@@ -4,7 +4,6 @@ import availableEventsData from "../../../util/available-events.json";
 import signedUpEventsData from "../../../util/signed-up-events.json";
 import "./eventList.sass";
 import {EventProps} from "../../../interfaces";
-import {EventDate} from "../../../util/EventDate";
 
 interface EventListProps {
     type: string
