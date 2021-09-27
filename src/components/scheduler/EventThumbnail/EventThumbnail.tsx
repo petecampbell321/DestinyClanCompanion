@@ -1,25 +1,19 @@
 import React, { Component } from "react";
-import {EventDate} from "../../../util/EventDate";
 import "./eventThumbnail.sass";
 import {EventProps} from "../../../interfaces";
+import {EventDate} from "../../../util/EventDate";
 
-interface EventThumbnailState {
-    title: string,
-    activity: string,
-    date: EventDate,
-    attendees: number,
-    maxPlayers: number
-}
-
-class EventThumbnail extends Component<EventProps, EventThumbnailState> {
+class EventThumbnail extends Component<EventProps, EventProps> {
+    private date: EventDate
 
     constructor(props: EventProps) {
         super(props);
 
+        this.date = new EventDate(new Date())
     }
 
     attendeesStylesClass() {
-        if (this.state.attendees === this.state.maxPlayers) {
+        if (this.props.attendees === this.props.maxPlayers) {
             return "attendees full"
         }
         return "attendees notFull"
@@ -27,9 +21,7 @@ class EventThumbnail extends Component<EventProps, EventThumbnailState> {
 
     render() {
 
-        const { title, activity, date, attendees, maxPlayers } = this.props
-        const dateString = date?.toDateString();
-        const timeString = date?.toTimeString();
+        const { title, activity, attendees, maxPlayers } = this.props
 
         // @ts-ignore
         return (
@@ -38,7 +30,7 @@ class EventThumbnail extends Component<EventProps, EventThumbnailState> {
                 <div className="activity">{activity}</div>
                 <br/>
                 <div className="date-attendees">
-                    <div className="datetime">{dateString} - {timeString}</div>
+                    <div className="datetime">{this.date.toDateString()} - {this.date.toTimeString()}</div>
                     <div className={this.attendeesStylesClass()}>{attendees}/{maxPlayers}</div>
                 </div>
             </div>
