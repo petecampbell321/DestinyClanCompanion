@@ -4,15 +4,15 @@ import "./app.sass";
 
 class App extends React.Component {
 
-    render() {
-        return (
-            <div className="app-container">
-                <div className="scheduler">
-                    <Scheduler />
-                </div>
-            </div>
-        );
-    };
+	render() {
+		return (
+			<div className="app-container">
+				<div className="scheduler">
+					<Scheduler/>
+				</div>
+			</div>
+		);
+	};
 
 }
 
